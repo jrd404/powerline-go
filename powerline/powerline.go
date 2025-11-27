@@ -1,7 +1,7 @@
 package powerline
 
 import (
-	runewidth "github.com/mattn/go-runewidth"
+	"github.com/mattn/go-runewidth"
 )
 
 // Segment describes an information to display on the command line prompt

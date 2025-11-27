@@ -107,13 +107,13 @@ func cwdToPathSegments(p *powerline, cwd string) []pathSegment {
 
 	if cwd == p.userInfo.HomeDir {
 		pathSegments = append(pathSegments, pathSegment{
-			path: "~",
+			path: "\uE5FF ", //  seti folder-config + space
 			home: true,
 		})
 		cwd = ""
 	} else if strings.HasPrefix(cwd, p.userInfo.HomeDir+pathSeparator) {
 		pathSegments = append(pathSegments, pathSegment{
-			path: "~",
+			path: "\uE5FF ", //  seti folder-config + space
 			home: true,
 		})
 		cwd = cwd[len(p.userInfo.HomeDir):]
@@ -170,7 +170,7 @@ func segmentCwd(p *powerline) (segments []pwl.Segment) {
 	switch p.cfg.CwdMode {
 	case "plain":
 		if strings.HasPrefix(cwd, p.userInfo.HomeDir) {
-			cwd = "~" + cwd[len(p.userInfo.HomeDir):]
+			cwd = "\uE5FF " + cwd[len(p.userInfo.HomeDir):]
 		}
 
 		segments = append(segments, pwl.Segment{

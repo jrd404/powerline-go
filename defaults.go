@@ -31,7 +31,6 @@ var defaults = Config{
 		"hg",
 		"jobs",
 		"exit",
-		"root",
 	},
 	ModulesRight: []string{},
 	Priority: []string{
@@ -84,38 +83,38 @@ var defaults = Config{
 			RepoConflicted: "\u273C",
 			RepoStashed:    "\u2691",
 
-			DotEnvIndicator:    "\u2235",
-			KubeIndicator:      "\u2388",
-			NixShellIndicator:  "\uF313",
-			NodeIndicator:      "\u2B22",
-			RvmIndicator:       "\uE92B",
-			VenvIndicator:      "\uE235",
+			DotEnvIndicator:   "\u2235",
+			KubeIndicator:     "\u2388",
+			NixShellIndicator: "\uF313",
+			NodeIndicator:     "\u2B22",
+			RvmIndicator:      "\uE92B",
+			VenvIndicator:     "\uE235", // z
 		},
 		"patched": {
-			Lock:                 "\uE0A2",
-			Network:              "\u260E ",
-			NetworkAlternate:     "\uE0A2",
+			Lock:                 "\U000F033E", // 󰌾 material lock
+			Network:              "\U000F018D", // 󰆍 material console
+			NetworkAlternate:     "\U000F033E", // 󰌾 material lock
 			Separator:            "\uE0B0",
 			SeparatorThin:        "\uE0B1",
 			SeparatorReverse:     "\uE0B2",
 			SeparatorReverseThin: "\uE0B3",
 
-			RepoBranch:     "\uE0A0",
-			RepoDetached:   "\u2693",
-			RepoAhead:      "\u2B06",
-			RepoBehind:     "\u2B07",
-			RepoStaged:     "\u2714",
-			RepoNotStaged:  "\u270E",
-			RepoUntracked:  "+",
-			RepoConflicted: "\u273C",
-			RepoStashed:    "\u2691",
+			RepoBranch:     "\U000F062C", // 󰘬 material source-branch
+			RepoDetached:   "\U000F14CB", // 󱓋 material source-branch-minus
+			RepoAhead:      "\U000F005D", // 󰁝 material arrow-up
+			RepoBehind:     "\U000F0045", // 󰁅 material arrow-down
+			RepoStaged:     "\U000F012C", // 󰄬 material check
+			RepoNotStaged:  "\U000F03EB", // 󰏫 material pencil
+			RepoUntracked:  "\U000F0415", // 󰐕 material plus
+			RepoConflicted: "\U000F0026", // 󰀦 material alert
+			RepoStashed:    "\U000F0030", // 󰀰 material archive
 
-			DotEnvIndicator:    "\u2235",
-			KubeIndicator:      "\u2388",
-			NixShellIndicator:  "\uF313",
-			NodeIndicator:      "\u2B22",
-			RvmIndicator:       "\uE92B",
-			VenvIndicator:      "\uE235",
+			DotEnvIndicator:   "\U000F107B", // 󱁻 material file-cog
+			KubeIndicator:     "\U000F10FE", // 󱃾 material kubernetes
+			NixShellIndicator: "\uE66B",     //  seti nixos
+			NodeIndicator:     "\uE636",     //  seti node
+			RvmIndicator:      "\uE63A",     //  seti ruby
+			VenvIndicator:     "\uE606",     //  seti python
 		},
 		"flat": {
 			RepoDetached:   "\u2693",
@@ -127,18 +126,18 @@ var defaults = Config{
 			RepoConflicted: "\u273C",
 			RepoStashed:    "\u2691",
 
-			DotEnvIndicator:    "\u2235",
-			KubeIndicator:      "\u2388",
-			NixShellIndicator:  "\uF313",
-			NodeIndicator:      "\u2B22",
-			RvmIndicator:       "\uE92B",
-			VenvIndicator:      "\uE235",
+			DotEnvIndicator:   "\u2235",
+			KubeIndicator:     "\u2388",
+			NixShellIndicator: "\uF313",
+			NodeIndicator:     "\u2B22",
+			RvmIndicator:      "\uE92B",
+			VenvIndicator:     "\uE235",
 		},
 	},
 	Shells: ShellMap{
 		"bash": {
 			ColorTemplate:    "\\[\\e%s\\]",
-			RootIndicator:    "\\$",
+			RootIndicator:    "$",
 			EscapedBackslash: `\\\\`,
 			EscapedBacktick:  "\\`",
 			EscapedDollar:    `\$`,
@@ -179,8 +178,8 @@ var defaults = Config{
 			HostnameBg: 238,
 
 			HomeSpecialDisplay: true,
-			HomeFg:             15,  // white
-			HomeBg:             31,  // blueish
+			HomeFg:             234, // dark (background)
+			HomeBg:             221, // yellow (#ffcb6b)
 			AliasFg:            15,  // white
 			AliasBg:            31,  // blueish
 			PathFg:             250, // light grey
@@ -211,18 +210,18 @@ var defaults = Config{
 			AWSFg: 15,  // white
 			AWSBg: 172, // AWS orange
 
-			RepoCleanFg: 0,   // black
-			RepoCleanBg: 148, // a light green color
-			RepoDirtyFg: 15,  // white
-			RepoDirtyBg: 161, // pink/red
+			RepoCleanFg: 234, // dark
+			RepoCleanBg: 176, // purple (#c792ea)
+			RepoDirtyFg: 234, // dark
+			RepoDirtyBg: 176, // purple (#c792ea)
 
 			JobsFg: 39,
 			JobsBg: 238,
 
 			CmdPassedFg: 15,
 			CmdPassedBg: 236,
-			CmdFailedFg: 15,
-			CmdFailedBg: 161,
+			CmdFailedFg: 234, // black
+			CmdFailedBg: 203, // red (#ff5370)
 
 			SvnChangesFg: 22, // dark green
 			SvnChangesBg: 148,
@@ -230,26 +229,26 @@ var defaults = Config{
 			GCPFg: 117,
 			GCPBg: 26,
 
-			GitAheadFg:      250,
-			GitAheadBg:      240,
-			GitBehindFg:     250,
-			GitBehindBg:     240,
-			GitStagedFg:     15,
-			GitStagedBg:     22,
-			GitNotStagedFg:  15,
-			GitNotStagedBg:  130,
-			GitUntrackedFg:  15,
-			GitUntrackedBg:  52,
-			GitConflictedFg: 15,
-			GitConflictedBg: 9,
-			GitStashedFg:    15,
-			GitStashedBg:    20,
+			GitAheadFg:      234,
+			GitAheadBg:      176,
+			GitBehindFg:     234,
+			GitBehindBg:     176,
+			GitStagedFg:     234,
+			GitStagedBg:     176,
+			GitNotStagedFg:  234,
+			GitNotStagedBg:  176,
+			GitUntrackedFg:  234,
+			GitUntrackedBg:  176,
+			GitConflictedFg: 234,
+			GitConflictedBg: 176,
+			GitStashedFg:    234,
+			GitStashedBg:    176,
 
 			GoenvBg: 38,  // approx. Gopher Blue
 			GoenvFg: 220, // approx. Secondary Yellow
 
-			VirtualEnvFg: 00,
-			VirtualEnvBg: 35, // a mid-tone green
+			VirtualEnvFg: 234, // dark
+			VirtualEnvBg: 111, // blue (#82aaff)
 
 			VirtualGoFg: 220, // approx. Secondary Yellow
 			VirtualGoBg: 38,  // approx. Gopher Blue

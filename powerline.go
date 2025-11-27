@@ -416,24 +416,7 @@ func (p *powerline) draw() string {
 
 	if p.cfg.PromptOnNewLine {
 		buffer.WriteRune('\n')
-
-		var foreground, background uint8
-		if p.cfg.PrevError == 0 || p.cfg.StaticPromptIndicator {
-			foreground = p.theme.CmdPassedFg
-			background = p.theme.CmdPassedBg
-		} else {
-			foreground = p.theme.CmdFailedFg
-			background = p.theme.CmdFailedBg
-		}
-
-		buffer.WriteString(p.fgColor(foreground))
-		buffer.WriteString(p.bgColor(background))
-		buffer.WriteString(p.shell.RootIndicator)
-		buffer.WriteString(p.reset)
-		buffer.WriteString(p.fgColor(background))
-		buffer.WriteString(p.symbols.Separator)
-		buffer.WriteString(p.reset)
-		buffer.WriteRune(' ')
+		buffer.WriteString(" └╴\uE635  ")
 	}
 
 	if p.cfg.Eval {
